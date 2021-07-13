@@ -1,6 +1,6 @@
 import { Component } from "react";
 import { connect } from "react-redux";
-import actions from "../../redux/actions";
+import contactsOperations from "../../redux/contactsOperations";
 
 import s from "./Form.module.css";
 
@@ -76,7 +76,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   onSubmit: ({ name, number }) =>
-    dispatch(actions.addContact({ name, number })),
+    dispatch(contactsOperations.addContact({ name, number })),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Form);
