@@ -16,7 +16,8 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.props.isLoading);
+    const { isLoading, contactsError } = this.props;
+
     return (
       <>
         <Section title={"Phonebook"}>
@@ -27,12 +28,18 @@ class App extends Component {
           <div className={s.container}>
             <ContactsFilter />
 
-            {this.props.contactsError && (
-              <h2>{this.props.contactsError.message}</h2>
-            )}
-
-            {this.props.isLoading ? (
-              <Loader type="Circles" color="#00BFFF" height={80} width={80} />
+            {isLoading ? (
+              <Loader
+                className={s.loader}
+                type="Rings"
+                color="#00BFFF"
+                height={80}
+                width={80}
+              />
+            ) : contactsError ? (
+              <h2 className={s.error}>
+                Sorry, something went wrong({contactsError.message})
+              </h2>
             ) : (
               <Contacts />
             )}

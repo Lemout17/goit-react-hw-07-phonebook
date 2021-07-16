@@ -1,16 +1,18 @@
 .label {
   display: flex;
   flex-direction: column;
+  text-align: center;
 }
 
 .input {
-  width: 160px;
-  margin-top: 5px;
+  width: 266px;
+  margin: 5px auto;
   padding: 5px;
 
   font-size: 15px;
 
   border: 1px solid grey;
+  border-radius: 4px;
 
   background: #fff9f961;
   backdrop-filter: blur(20px);

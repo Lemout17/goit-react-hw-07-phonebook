@@ -19,13 +19,14 @@
 }
 
 .input {
-  width: 150px;
+  width: 100%;
   margin-top: 5px;
   padding: 5px;
 
   font-size: 15px;
 
   border: 1px solid grey;
+  border-radius: 4px;
 
   background: #fff9f961;
   backdrop-filter: blur(20px);
