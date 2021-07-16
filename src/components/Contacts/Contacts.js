@@ -1,6 +1,7 @@
 import { connect } from "react-redux";
 import contactsOperations from "../../redux/contactsOperations";
 import s from "./Contacts.module.css";
+import contactsSelectors from "../../redux/contacts-selectors";
 
 const Contacts = ({ contacts, onDelete }) => {
   return (
@@ -23,13 +24,8 @@ const Contacts = ({ contacts, onDelete }) => {
   );
 };
 
-const filterContacts = (allContacts, value) =>
-  allContacts.filter((contact) =>
-    contact.name.toLowerCase().includes(value.toLowerCase())
-  );
-
-const mapStateToProps = ({ contacts: { items, filter } }) => ({
-  contacts: filterContacts(items, filter),
+const mapStateToProps = (state) => ({
+  contacts: contactsSelectors.getFilteredContacts(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({

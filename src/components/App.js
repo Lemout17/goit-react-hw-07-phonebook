@@ -8,6 +8,7 @@ import { Component } from "react";
 import { connect } from "react-redux";
 import contactsOperations from "../redux/contactsOperations";
 import Loader from "react-loader-spinner";
+import contactsSelectors from "../redux/contacts-selectors";
 
 class App extends Component {
   componentDidMount() {
@@ -43,8 +44,8 @@ class App extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  isLoading: state.contacts.loading,
-  contactsError: state.contacts.contactsError,
+  isLoading: contactsSelectors.getLoading(state),
+  contactsError: contactsSelectors.getError(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({
